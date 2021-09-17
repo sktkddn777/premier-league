@@ -66,17 +66,18 @@ if __name__ == "__main__":
     mongo.premier_insert(premier_league_data, squad_data)
 
 
+# helper
+
 def team_helper(team) -> dict:
     return {
-        "comp_id": team["comp_id"],
-        "round": team["round"],
-        "country": team["country"],
-        "team_id": team["team_id"],
-        "team_name": team["team_name"],
-        "recent_form": team["recent_form"],
-        "position": team["position"],
+        "_id": team["_id"],
+        "name": team["name"],
+        "overall_ga": team["overall_ga"],
+        "overall_gs": team["overall_gs"],
         "points": team["points"],
-        "description": team["description"],
+        "round": team["round"],
+        "season": team["position"],
+        "squad": team["squad"],
     }
 
 
@@ -90,18 +91,18 @@ async def retrieve_teams():
 # Add a new student into to the database
 async def add_team(team_data: dict) -> dict:
     team = await team_collection.insert_one(team_data)
-    new_team = await team_collection.find_one({"comp_id": team.inserted_id})
+    new_team = await team_collection.find_one({"_id": team.inserted_id})
     return team_helper(new_team)
 
 # Retrieve a team with a matching ID
-async def retrieve_team(id: str) -> dict:
-    team = await team_collection.find_one({"team_id": ObjectId(id)})
+async def retrieve_team(name: str) -> dict:
+    team = await team_collection.find_one({"name": ObjectId(name)})
     if team:
         return team_helper(team)
 
 # Delete a team from the database
-async def delete_team(id: str):
-    team = await team_collection.find_one({"team_id": ObjectId(id)})
+async def delete_team(name: str):
+    team = await team_collection.find_one({"name": ObjectId(name)})
     if team:
-        await team_collection.delete_one({"team_id": ObjectId(id)})
+        await team_collection.delete_one({"name": ObjectId(name)})
         return True
