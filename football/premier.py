@@ -1,5 +1,8 @@
 import requests
 import json
+from os import path
+
+BASE_DIR = path.dirname(path.abspath(__file__))
 
 
 class Premier:
@@ -58,7 +61,10 @@ class Premier:
 
 
 if __name__ == "__main__":
-  authorization = "authorization"
+  SECRET_PATH = path.join(BASE_DIR, ".config_secret/secrets.json")
+  secrets = json.loads(open(SECRET_PATH).read())
+  authorization = secrets['AUTHORIZATION_KEY']
+
   base_url = "https://data.football-api.com/v3"
   competition_url = f"{base_url}/competitions?Authorization={authorization}"
   response = requests.get(competition_url)
