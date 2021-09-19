@@ -28,13 +28,14 @@ services:
   epl:
     build:
       context: ./football
-      dockerfile: 
+      dockerfile: Dockerfile
     image: premier_league
     volumes: 
       - league:/premier
     command: sh -c "cd football && python premier.py"
     depends_on: mongo
-
+  
+  
 
 # volume 설정.
 volumes:
