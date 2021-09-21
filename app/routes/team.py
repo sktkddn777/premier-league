@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 
-from database.mongo import (
+from database.team_collection import (
     retrieve_teams,
     add_team,
     retrieve_team,
