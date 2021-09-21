@@ -3,6 +3,7 @@ version: '3.1'
 services:
 
   mongo:
+    container_name: mongodb
     image: mongo
     restart: always
     ports: 
@@ -14,6 +15,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
 
   mongo-express:
+    container_name: mongodb-express
     image: mongo-express
     restart: always
     ports:
@@ -24,17 +26,30 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+    depends_on:
+      - mongo
   
   epl:
-    build:
-      context: ./football
-      dockerfile: 
+    build: .
     image: premier_league
     volumes: 
-      - league:/premier
-    command: sh -c "cd football && python premier.py"
-    depends_on: mongo
-
+      - .:/backend
+    command: bash -c "cd football/database && python mongo.py"
+    depends_on:
+      - mongo
+  
+  fastapi:
+    build: .
+    image: app
+    volumes:
+      - .:/backend
+    command: bash -c "cd app && python main.py"
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    depends_on:
+      - mongo
 
 # volume 설정.
 volumes:
