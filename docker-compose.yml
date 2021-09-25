@@ -1,0 +1,58 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    ports: 
+      - 27017:27017
+    volumes: 
+      - mongo-data:/mongodb/data
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    container_name: mongodb-express
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    volumes: 
+      - mongo-data:/mongodb/data
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+    depends_on:
+      - mongo
+  
+  epl:
+    # build: .
+    image: premier_league
+    volumes: 
+      - .:/backend
+    command: bash -c "cd app && python database.py"
+    depends_on:
+      - mongo
+  
+  fastapi:
+    build: .
+    image: app
+    restart: always
+    volumes:
+      - .:/backend
+    command: bash -c "cd app && python main.py"
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    depends_on:
+      - mongo
+
+
+# volume 설정.
+volumes:
+  mongo-data:
