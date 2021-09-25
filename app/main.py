@@ -15,16 +15,14 @@ from routes.team import router as EplRouter
 #     return app
 
 # app = create_app()
+
 app = FastAPI()
+
 app.include_router(EplRouter, tags=["EPL"], prefix="/epl")
+
 @app.get("/", tags=["Root"])
 async def root():
-    return {"message": "HelloWOrld"}
-
-
-@app.get("/items/{item_id}")
-async def read_item(item_id: int):
-    return {"item_id": item_id}
+    return {"message": "Welcome to fantastic fast api world!!!"}
 
 
 if __name__ == "__main__":

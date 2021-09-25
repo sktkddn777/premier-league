@@ -1,28 +1,28 @@
 from typing import Optional
+from bson.objectid import ObjectId
 
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
 
-	# overall_gp: str = Field(...)
-	# overall_w: str = Field(...)
-	# overall_d: str = Field(...)
-	# overall_l: str = Field(...)
-	# overall_gs: str = Field(...)
-	# overall_ga: str = Field(...)
-	# home_gp: str = Field(...)
-	# home_w: str = Field(...)
-	# home_d: str = Field(...)
-	# home_l: str = Field(...)
-	# home_gs: str = Field(...)
-	# home_ga: str = Field(...)
-	# away_gp: str = Field(...)
-	# away_w: str = Field(...)
-	# away_d: str = Field(...)
-	# away_l: str = Field(...)
-	# away_gs: str = Field(...)
-	# away_ga: str = Field(...)
-	# gd: str = Field(...)
+
+class PyObjectId(ObjectId):
+    @classmethod
+    def __get_validators__(cls):
+        yield cls.validate
+
+    @classmethod
+    def validate(cls, v):
+        if not ObjectId.is_valid(v):
+            raise ValueError("Invalid objectid")
+        return ObjectId(v)
+
+    @classmethod
+    def __modify_schema__(cls, field_schema):
+        field_schema.update(type="string")
+
+        
+# How to store in Mongo DB
 class TeamSchema(BaseModel):
-  _id: str = Field(...)
+  id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
   name: str = Field(...)
   overall_ga: str = Field(...)
   overall_gs: str = Field(...)
@@ -32,18 +32,20 @@ class TeamSchema(BaseModel):
   squad: list = Field(...)
 
   class Config:
-        schema_extra = {
-            "example": {
-                "_id": "1111",
-                "name": "4",
-                "overall_ga": "3",
-                "overall_gs": "1",
-                "points": "6",
-                "round": "6",
-                "season": "2020/2021",
-                "squad": ["player1","player2", "player3"],
-            }
-        }
+    #   allow_population_by_field_name = True
+    #   json_encoders = {ObjectId: str}
+    #   arbitrary_types_allowed = True
+      schema_extra = {
+          "example": {
+              "name": "4",
+              "overall_ga": "3",
+              "overall_gs": "1",
+              "points": "6",
+              "round": "6",
+              "season": "2020/2021",
+              "squad": ["player1","player2", "player3"],
+          }
+      }
 
 
 # class UpdateStudentModel(BaseModel):

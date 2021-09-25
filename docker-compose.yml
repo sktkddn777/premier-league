@@ -30,17 +30,18 @@ services:
       - mongo
   
   epl:
-    build: .
+    # build: .
     image: premier_league
     volumes: 
       - .:/backend
-    command: bash -c "cd football/database && python mongo.py"
+    command: bash -c "cd app && python database.py"
     depends_on:
       - mongo
   
   fastapi:
     build: .
     image: app
+    restart: always
     volumes:
       - .:/backend
     command: bash -c "cd app && python main.py"
