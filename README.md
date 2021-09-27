@@ -6,8 +6,8 @@
     epl 팀과 선수들의 정보를 알 수 있습니다.
   <br />
     <br />
-    <a href="https://www.notion.so/epl-Project-57878a4e13634f6e9b21e57d7888f30d"><strong>공부하는 내용 정리하는 notion</strong></a>
-    <br />
+
+
   </p>
 </p>
 
@@ -29,7 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 - epl 구단 정보 보여주기
-- epl 자신만의 스쿼드 짜기
+
 
 
 ### Built With
@@ -38,7 +38,7 @@
 * ![Django](https://img.shields.io/badge/-Fastapi-000000?style=flat&logo=Fastapi)
 * ![AWS EC2](https://img.shields.io/badge/-EC2-000000?style=flat&logo=amazon-aws)
 * ![MongoDB](https://img.shields.io/badge/-MongoDB-000000?style=flat&logo=mongodb)
-<!-- * ![GraphQL](https://img.shields.io/badge/-GraphQL-000000?style=flat&logo=graphql) -->
+
 
 ### Architecture
   
