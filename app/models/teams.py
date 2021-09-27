@@ -48,6 +48,27 @@ class TeamSchema(BaseModel):
       }
 
 
+class SquadSchema(BaseModel):
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    team_name: str = Field(...)
+    coach: str = Field(...)
+    main_squad: list = Field(...)
+    injured: list = Field(...)
+    recruited_player:list = Field(...)
+    sold_player: list = Field(...)
+
+    class Config:
+      schema_extra = {
+          "example": {
+              "team_name": "Best_Team",
+              "coach": "Coach",
+              "main_squad": ["player1","player2", "player3"],
+              "injured": ["player1","player2", "player3"],
+              "recruited_player": ["player1","player2", "player3"],
+              "sold_player": ["player1","player2", "player3"],
+          }
+      }
+
 # class UpdateStudentModel(BaseModel):
 #     comp_id: Optional[str]
 #     round: Optional[str]
