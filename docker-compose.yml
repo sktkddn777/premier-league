@@ -28,15 +28,24 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
     depends_on:
       - mongo
-  
+
+  epl_api:
+    build: .
+    image: epl_api
+    volumes: 
+      - .:/backend
+    command: bash -c "cd football && python premier.py"
+    depends_on:
+      - mongo
+    
   epl:
-    # build: .
+    build: .
     image: premier_league
     volumes: 
       - .:/backend
     command: bash -c "cd app && python database.py"
     depends_on:
-      - mongo
+      - epl_api
   
   fastapi:
     build: .
