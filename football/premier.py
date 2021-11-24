@@ -12,7 +12,7 @@ class Premier:
       self.name = name
       self.base_url = base_url
       self.authorization = authorization
-      self.filepath = f"football_json/{self.name}"
+      self.filepath = f"../football_json/{self.name}"
       self.data = {}
       self.team_data = {}
 
@@ -83,7 +83,7 @@ def make_data():
 
 
 if __name__ == "__main__":
-  #make_data()
+  make_data()
   db = Database()
   db.open_premier_data()
   db.connect_mongo()
