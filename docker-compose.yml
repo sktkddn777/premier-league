@@ -43,19 +43,18 @@ services:
   #   depends_on:
   #     - mongo
   
-  # fastapi:
-  #   build: .
-  #   image: app
-  #   restart: always
-  #   volumes:
-  #     - .:/backend
-  #   command: bash -c "cd app && python main.py"
-  #   ports:
-  #     - 8000:8000
-  #   expose:
-  #     - 8000
-  #   depends_on:
-  #     - mongo
+  fastapi:
+    build: .
+    command: sh -c "cd app && python main.py"
+    restart: always
+    volumes:
+      - .:/backend
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    depends_on:
+      - mongo
 
 
 # volume 설정.
