@@ -3,8 +3,8 @@ from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 from motor.frameworks import asyncio
 
-from database import database
-from database import (
+from db.database import database
+from db.database import (
     retrieve_teams,
     add_team,
     retrieve_team,

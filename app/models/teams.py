@@ -48,33 +48,6 @@ class TeamSchema(BaseModel):
       }
 
 
-# class UpdateStudentModel(BaseModel):
-#     comp_id: Optional[str]
-#     round: Optional[str]
-#     country: Optional[str]
-#     team_id: Optional[str]
-#     team_name:Optional[str]
-#     recent_form: Optional[str]
-#     position: Optional[str]
-#     points: Optional[str]
-#     description: Optional[str]
-
-#     class Config:
-#         schema_extra = {
-#             "example": {
-#                 "comp_id": "1204",
-#                 "round": "4",
-#                 "country": "England",
-#                 "team_id": "9260",
-#                 "team_name": "Manchester Utd",
-#                 "recent_form": "WWDW",
-#                 "position": "1",
-#                 "points": "10",
-#                 "description": "Promotion - Champions League (Group Stage)",
-#             }
-#         }
-
-
 def ResponseModel(data, message):
     return {
         "data": [data],
