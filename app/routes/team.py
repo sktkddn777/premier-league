@@ -1,14 +1,13 @@
 from bson.objectid import ObjectId
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
-from motor.frameworks import asyncio
 
 from db.database import database
 from db.database import (
     retrieve_teams,
-    add_team,
+    # add_team,
     retrieve_team,
-    delete_team,
+    # delete_team,
 )
 from models.teams import (
     ErrorResponseModel,

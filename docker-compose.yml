@@ -24,7 +24,7 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
     depends_on:
       - mongo
-  
+      
   football:
     build: .
     command: sh -c "cd football && python premier.py"
@@ -42,7 +42,7 @@ services:
   #   command: bash -c "cd app && python database.py"
   #   depends_on:
   #     - mongo
-  
+
   fastapi:
     build: .
     command: sh -c "cd app && python main.py"

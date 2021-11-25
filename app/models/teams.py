@@ -47,7 +47,6 @@ class TeamSchema(BaseModel):
           }
       }
 
-
 def ResponseModel(data, message):
     return {
         "data": [data],
