@@ -52,11 +52,11 @@ def squad_insert(squad_data, player_collection):
             )
 
 
-with open('../football/football_json/Premier League.json') as f:
+with open('../football_json/Premier League.json') as f:
     premier_league_data = json.load(f)
 
 # get squad data
-with open('../football/football_json/Premier League_squad.json') as f:
+with open('../football_json/Premier League_squad.json') as f:
     squad_data = json.load(f)
 
 SECRET_PATH = path.join(BASE_DIR, ".config_secret/secrets.json")

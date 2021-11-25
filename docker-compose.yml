@@ -1,59 +1,54 @@
-version: '3.1'
+version: '3.8'
 
 services:
 
   mongo:
-    container_name: mongodb
     image: mongo
     restart: always
     ports: 
       - 27017:27017
     volumes: 
-      - mongo-data:/mongodb/data
+      - mongo-storage:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
 
   mongo-express:
-    container_name: mongodb-express
     image: mongo-express
     restart: always
     ports:
       - 8081:8081
-    volumes: 
-      - mongo-data:/mongodb/data
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ROOT_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ROOT_PASSWORD}
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
     depends_on:
       - mongo
-
-  epl_api:
+      
+  football:
     build: .
-    image: epl_api
-    volumes: 
-      - .:/backend
-    command: bash -c "cd football && python premier.py"
+    command: sh -c "cd football && python premier.py"
     depends_on:
       - mongo
-    
-  epl:
-    build: .
-    image: premier_league
-    volumes: 
+    volumes:
       - .:/backend
-    command: bash -c "cd app && python database.py"
-    depends_on:
-      - epl_api
-  
+
+
+  # football:
+  #   build: .
+  #   image: premier_league
+  #   volumes: 
+  #     - .:/backend
+  #   command: bash -c "cd app && python database.py"
+  #   depends_on:
+  #     - mongo
+
   fastapi:
     build: .
-    image: app
+    command: sh -c "cd app && python main.py"
     restart: always
     volumes:
       - .:/backend
-    command: bash -c "cd app && python main.py"
     ports:
       - 8000:8000
     expose:
@@ -64,4 +59,4 @@ services:
 
 # volume 설정.
 volumes:
-  mongo-data:
+  mongo-storage:

@@ -47,55 +47,6 @@ class TeamSchema(BaseModel):
           }
       }
 
-
-class SquadSchema(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
-    team_name: str = Field(...)
-    coach: str = Field(...)
-    main_squad: list = Field(...)
-    injured: list = Field(...)
-    recruited_player:list = Field(...)
-    sold_player: list = Field(...)
-
-    class Config:
-      schema_extra = {
-          "example": {
-              "team_name": "Best_Team",
-              "coach": "Coach",
-              "main_squad": ["player1","player2", "player3"],
-              "injured": ["player1","player2", "player3"],
-              "recruited_player": ["player1","player2", "player3"],
-              "sold_player": ["player1","player2", "player3"],
-          }
-      }
-
-# class UpdateStudentModel(BaseModel):
-#     comp_id: Optional[str]
-#     round: Optional[str]
-#     country: Optional[str]
-#     team_id: Optional[str]
-#     team_name:Optional[str]
-#     recent_form: Optional[str]
-#     position: Optional[str]
-#     points: Optional[str]
-#     description: Optional[str]
-
-#     class Config:
-#         schema_extra = {
-#             "example": {
-#                 "comp_id": "1204",
-#                 "round": "4",
-#                 "country": "England",
-#                 "team_id": "9260",
-#                 "team_name": "Manchester Utd",
-#                 "recent_form": "WWDW",
-#                 "position": "1",
-#                 "points": "10",
-#                 "description": "Promotion - Champions League (Group Stage)",
-#             }
-#         }
-
-
 def ResponseModel(data, message):
     return {
         "data": [data],

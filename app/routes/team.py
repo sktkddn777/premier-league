@@ -2,8 +2,8 @@ from bson.objectid import ObjectId
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 
-
-from database import (
+from db.database import database
+from db.database import (
     retrieve_teams,
     # add_team,
     retrieve_team,
