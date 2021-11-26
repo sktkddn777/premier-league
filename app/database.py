@@ -33,3 +33,12 @@ async def retrieve_team(id: str) -> dict:
     team = team_collection.find_one({"_id": ObjectId(id)})
     if team:
         return team_helper(team)
+
+
+async def retrieve_teams_ranking():
+    teams = []
+    for idx, data in enumerate(team_collection.find()):
+        name = team_helper(data)['name']
+        point = team_helper(data)['points']
+        teams.append((idx+1, name, point))
+    return teams
