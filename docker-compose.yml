@@ -33,28 +33,18 @@ services:
     volumes:
       - .:/backend
 
-
-  # football:
-  #   build: .
-  #   image: premier_league
-  #   volumes: 
-  #     - .:/backend
-  #   command: bash -c "cd app && python database.py"
-  #   depends_on:
-  #     - mongo
-
-  # fastapi:
-  #   build: .
-  #   command: sh -c "cd app && python main.py"
-  #   restart: always
-  #   volumes:
-  #     - .:/backend
-  #   ports:
-  #     - 8000:8000
-  #   expose:
-  #     - 8000
-  #   depends_on:
-  #     - mongo
+  fastapi:
+    build: .
+    command: sh -c "cd app && python main.py"
+    restart: always
+    volumes:
+      - .:/backend
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+    depends_on:
+      - mongo
 
 
 # volume 설정.
