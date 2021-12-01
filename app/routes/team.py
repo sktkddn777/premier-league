@@ -28,10 +28,7 @@ async def retrieve_team_data(id):
         return ResponseModel(team, "Team data retrieved successfully")
     return ErrorResponseModel("Error occured", 404, "Team doesn't exist")
 
-
-# @router.get("/ranking", response_description="Team rankings of the EPL")
-# async def retrieve_ranking_data():
-#     teams = await retrieve_teams_rank()
-#     if teams:
-#         return ResponseModel(teams, "Teams ranking data retrieved")
-#     return ResponseModel(teams, "Empty")
+async def test():
+    teams = await retrieve_teams()
+    if teams:
+        return teams
