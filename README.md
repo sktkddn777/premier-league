@@ -35,8 +35,7 @@
 ### Built With
 
 * ![Docker](https://img.shields.io/badge/-Docker-000000?style=flat&logo=docker)
-* ![Django](https://img.shields.io/badge/-Fastapi-000000?style=flat&logo=Fastapi)
-* ![AWS EC2](https://img.shields.io/badge/-EC2-000000?style=flat&logo=amazon-aws)
+* ![Fastapi](https://img.shields.io/badge/-Fastapi-000000?style=flat&logo=Fastapi)
 * ![MongoDB](https://img.shields.io/badge/-MongoDB-000000?style=flat&logo=mongodb)
 
 
