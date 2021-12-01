@@ -23,8 +23,8 @@ async def root():
 async def read_item(request: Request):
   data = []
   teams_data = get_data()
-  for team in teams_data['Premier League']:
-    data.append(rank_helper(team))
+  for i, team in enumerate(teams_data['Premier League']):
+    data.append([i, rank_helper(team)])
   return templates.TemplateResponse("index.html", {"request": request, "data":data})
 
 
