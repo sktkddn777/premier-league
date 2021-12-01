@@ -9,9 +9,7 @@ client = MongoClient(mongo_details)
 database = client.teams
 team_collection = database.get_collection("teams_collection")
 
-
-
-# # helper
+# helper
 def team_helper(team) -> dict:
   return {
       "id": str(team["_id"]),

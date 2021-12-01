@@ -7,14 +7,17 @@
 </head>
 <body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
+    <link rel="stylesheet" href="/static/css/style.css">
     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
+
     <div class="main1">
         <div class="main2 table-responsive">
             <center>
-                <h2> PREMIER LEAGUE <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxnGxqi_A30iMXBVNUOb60nq-d1GNkc5qlex5s_gA&usqp=CAE&s"></h2>
+                <h2> <img class="flag" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxnGxqi_A30iMXBVNUOb60nq-d1GNkc5qlex5s_gA&usqp=CAE&s"></h2>
                 <p class="pt">POINTS TABLE 2021</p>
                 <table class="table">
                     <thead>
@@ -30,93 +33,203 @@
                     <tbody>
                         <tr class="top">
                             <td>1</td>
-                            <td class="name"><img class="logo" src="data:image/png;base64,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">&nbsp;&nbsp; MANCHESTER CITY</td>
-                            <td>7</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>+18</td>
-                            <td>19</td>
+                            <td class="name"><img class="logo" src={{ data[0]['icon'] }}>&nbsp;&nbsp; {{data[0]['name']}}</td>
+                            <td>{{ data[0]['round'] }}</td>
+                            <td>{{ data[0]['overall_w'] }}</td>
+                            <td>{{ data[0]['overall_d'] }}</td>
+                            <td>{{ data[0]['overall_l'] }}</td>
+                            <td>{{ data[0]['gd'] }}</td>
+                            <td>{{data[0]['points']}}</td>
                         </tr>
                         <tr class="top">
                             <td>2</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; LIVERPOOL</td>
-                            <td>7</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>+12</td>
-                            <td>19</td>
+                            <td class="name"><img class="logo" src={{ data[1]['icon'] }}>&nbsp;&nbsp; {{data[1]['name']}}</td>
+                            <td>{{ data[1]['round'] }}</td>
+                            <td>{{ data[1]['overall_w'] }}</td>
+                            <td>{{ data[1]['overall_d'] }}</td>
+                            <td>{{ data[1]['overall_l'] }}</td>
+                            <td>{{ data[1]['gd'] }}</td>
+                            <td>{{data[1]['points']}}</td>
                         </tr>
                         <tr class="top">
                             <td>3</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; CHELSEA</td>
-                            <td>7</td>
-                            <td>5</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>+10</td>
-                            <td>17</td>
+                            <td class="name"><img class="logo" src={{ data[2]['icon'] }}>&nbsp;&nbsp; {{data[2]['name']}}</td>
+                            <td>{{ data[2]['round'] }}</td>
+                            <td>{{ data[2]['overall_w'] }}</td>
+                            <td>{{ data[2]['overall_d'] }}</td>
+                            <td>{{ data[2]['overall_l'] }}</td>
+                            <td>{{ data[2]['gd'] }}</td>
+                            <td>{{data[2]['points']}}</td>
                         </tr>
                         <tr class="top">
                             <td>4</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; TOTTENHHAM HOTSPUR</td>
-                            <td>7</td>
-                            <td>5</td>
-                            <td>0</td>
-                            <td>2</td>
-                            <td>+7</td>
-                            <td>15</td>
+                            <td class="name"><img class="logo" src={{ data[3]['icon'] }}>&nbsp;&nbsp; {{data[3]['name']}}</td>
+                            <td>{{ data[3]['round'] }}</td>
+                            <td>{{ data[3]['overall_w'] }}</td>
+                            <td>{{ data[3]['overall_d'] }}</td>
+                            <td>{{ data[3]['overall_l'] }}</td>
+                            <td>{{ data[3]['gd'] }}</td>
+                            <td>{{data[3]['points']}}</td>
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; ARSENAL</td>
-                            <td>7</td>
-                            <td>5</td>
-                            <td>0</td>
-                            <td>2</td>
-                            <td>+5</td>
-                            <td>15</td>
+                            <td class="name"><img class="logo" src={{ data[4]['icon'] }}>&nbsp;&nbsp; {{data[4]['name']}}</td>
+                            <td>{{ data[4]['round'] }}</td>
+                            <td>{{ data[4]['overall_w'] }}</td>
+                            <td>{{ data[4]['overall_d'] }}</td>
+                            <td>{{ data[4]['overall_l'] }}</td>
+                            <td>{{ data[4]['gd'] }}</td>
+                            <td>{{data[4]['points']}}</td>
                         </tr>
                         <tr>
                             <td>6</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; WATFORD</td>
-                            <td>7</td>
-                            <td>4</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>+3</td>
-                            <td>13</td>
+                            <td class="name"><img class="logo" src={{ data[5]['icon'] }}>&nbsp;&nbsp; {{data[5]['name']}}</td>
+                            <td>{{ data[5]['round'] }}</td>
+                            <td>{{ data[5]['overall_w'] }}</td>
+                            <td>{{ data[5]['overall_d'] }}</td>
+                            <td>{{ data[5]['overall_l'] }}</td>
+                            <td>{{ data[5]['gd'] }}</td>
+                            <td>{{data[5]['points']}}</td>
                         </tr>
                         <tr>
                             <td>7</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; BOURNEMOUTH</td>
-                            <td>7</td>
-                            <td>4</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>0</td>
-                            <td>13</td>
+                            <td class="name"><img class="logo" src={{ data[6]['icon'] }}>&nbsp;&nbsp; {{data[6]['name']}}</td>
+                            <td>{{ data[6]['round'] }}</td>
+                            <td>{{ data[6]['overall_w'] }}</td>
+                            <td>{{ data[6]['overall_d'] }}</td>
+                            <td>{{ data[6]['overall_l'] }}</td>
+                            <td>{{ data[6]['gd'] }}</td>
+                            <td>{{data[6]['points']}}</td>
                         </tr>
                         <tr>
                             <td>8</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; LEICESTER CITY</td>
-                            <td>7</td>
-                            <td>4</td>
-                            <td>0</td>
-                            <td>3</td>
-                            <td>+3</td>
-                            <td>12</td>
+                            <td class="name"><img class="logo" src={{ data[7]['icon'] }}>&nbsp;&nbsp; {{data[7]['name']}}</td>
+                            <td>{{ data[7]['round'] }}</td>
+                            <td>{{ data[7]['overall_w'] }}</td>
+                            <td>{{ data[7]['overall_d'] }}</td>
+                            <td>{{ data[7]['overall_l'] }}</td>
+                            <td>{{ data[7]['gd'] }}</td>
+                            <td>{{data[7]['points']}}</td>
                         </tr>
                         <tr>
                             <td>9</td>
-                            <td class="name"><img class="logo" src="https://dthumb-phinf.pstatic.net/?src=https://sports-phinf.pstatic.net/team/wfootball/default/4.png&type=f25_25&refresh=1">&nbsp;&nbsp; WOLVERHAMPTON WANDERERS</td>
-                            <td>7</td>
-                            <td>3</td>
-                            <td>3</td>
-                            <td>1</td>
-                            <td>+2</td>
+                            <td class="name"><img class="logo" src={{ data[8]['icon'] }}>&nbsp;&nbsp; {{data[8]['name']}}</td>
+                            <td>{{ data[8]['round'] }}</td>
+                            <td>{{ data[8]['overall_w'] }}</td>
+                            <td>{{ data[8]['overall_d'] }}</td>
+                            <td>{{ data[8]['overall_l'] }}</td>
+                            <td>{{ data[8]['gd'] }}</td>
+                            <td>{{data[8]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="name"><img class="logo" src={{ data[9]['icon'] }}>&nbsp;&nbsp; {{data[9]['name']}}</td>
+                            <td>{{ data[9]['round'] }}</td>
+                            <td>{{ data[9]['overall_w'] }}</td>
+                            <td>{{ data[9]['overall_d'] }}</td>
+                            <td>{{ data[9]['overall_l'] }}</td>
+                            <td>{{ data[9]['gd'] }}</td>
+                            <td>{{data[9]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="name"><img class="logo" src={{ data[10]['icon'] }}>&nbsp;&nbsp; {{data[10]['name']}}</td>
+                            <td>{{ data[10]['round'] }}</td>
+                            <td>{{ data[10]['overall_w'] }}</td>
+                            <td>{{ data[10]['overall_d'] }}</td>
+                            <td>{{ data[10]['overall_l'] }}</td>
+                            <td>{{ data[10]['gd'] }}</td>
+                            <td>{{data[10]['points']}}</td>
+                        </tr>
+                        <tr>
                             <td>12</td>
+                            <td class="name"><img class="logo" src={{ data[11]['icon'] }}>&nbsp;&nbsp; {{data[11]['name']}}</td>
+                            <td>{{ data[11]['round'] }}</td>
+                            <td>{{ data[11]['overall_w'] }}</td>
+                            <td>{{ data[11]['overall_d'] }}</td>
+                            <td>{{ data[11]['overall_l'] }}</td>
+                            <td>{{ data[11]['gd'] }}</td>
+                            <td>{{data[11]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td class="name"><img class="logo" src={{ data[12]['icon'] }}>&nbsp;&nbsp; {{data[12]['name']}}</td>
+                            <td>{{ data[12]['round'] }}</td>
+                            <td>{{ data[12]['overall_w'] }}</td>
+                            <td>{{ data[12]['overall_d'] }}</td>
+                            <td>{{ data[12]['overall_l'] }}</td>
+                            <td>{{ data[12]['gd'] }}</td>
+                            <td>{{data[12]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td class="name"><img class="logo" src={{ data[13]['icon'] }}>&nbsp;&nbsp; {{data[13]['name']}}</td>
+                            <td>{{ data[13]['round'] }}</td>
+                            <td>{{ data[13]['overall_w'] }}</td>
+                            <td>{{ data[13]['overall_d'] }}</td>
+                            <td>{{ data[13]['overall_l'] }}</td>
+                            <td>{{ data[13]['gd'] }}</td>
+                            <td>{{data[13]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td class="name"><img class="logo" src={{ data[14]['icon'] }}>&nbsp;&nbsp; {{data[14]['name']}}</td>
+                            <td>{{ data[14]['round'] }}</td>
+                            <td>{{ data[14]['overall_w'] }}</td>
+                            <td>{{ data[14]['overall_d'] }}</td>
+                            <td>{{ data[14]['overall_l'] }}</td>
+                            <td>{{ data[14]['gd'] }}</td>
+                            <td>{{data[14]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td class="name"><img class="logo" src={{ data[15]['icon'] }}>&nbsp;&nbsp; {{data[15]['name']}}</td>
+                            <td>{{ data[15]['round'] }}</td>
+                            <td>{{ data[15]['overall_w'] }}</td>
+                            <td>{{ data[15]['overall_d'] }}</td>
+                            <td>{{ data[15]['overall_l'] }}</td>
+                            <td>{{ data[15]['gd'] }}</td>
+                            <td>{{data[15]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td class="name"><img class="logo" src={{ data[16]['icon'] }}>&nbsp;&nbsp; {{data[16]['name']}}</td>
+                            <td>{{ data[16]['round'] }}</td>
+                            <td>{{ data[16]['overall_w'] }}</td>
+                            <td>{{ data[16]['overall_d'] }}</td>
+                            <td>{{ data[16]['overall_l'] }}</td>
+                            <td>{{ data[16]['gd'] }}</td>
+                            <td>{{data[16]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td class="name"><img class="logo" src={{ data[17]['icon'] }}>&nbsp;&nbsp; {{data[17]['name']}}</td>
+                            <td>{{ data[17]['round'] }}</td>
+                            <td>{{ data[17]['overall_w'] }}</td>
+                            <td>{{ data[17]['overall_d'] }}</td>
+                            <td>{{ data[17]['overall_l'] }}</td>
+                            <td>{{ data[17]['gd'] }}</td>
+                            <td>{{data[17]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td class="name"><img class="logo" src={{ data[18]['icon'] }}>&nbsp;&nbsp; {{data[18]['name']}}</td>
+                            <td>{{ data[18]['round'] }}</td>
+                            <td>{{ data[18]['overall_w'] }}</td>
+                            <td>{{ data[18]['overall_d'] }}</td>
+                            <td>{{ data[18]['overall_l'] }}</td>
+                            <td>{{ data[18]['gd'] }}</td>
+                            <td>{{data[18]['points']}}</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td class="name"><img class="logo" src={{ data[19]['icon'] }}>&nbsp;&nbsp; {{data[19]['name']}}</td>
+                            <td>{{ data[19]['round'] }}</td>
+                            <td>{{ data[19]['overall_w'] }}</td>
+                            <td>{{ data[19]['overall_d'] }}</td>
+                            <td>{{ data[19]['overall_l'] }}</td>
+                            <td>{{ data[19]['gd'] }}</td>
+                            <td>{{data[19]['points']}}</td>
                         </tr>
                     </tbody>
                 </table>

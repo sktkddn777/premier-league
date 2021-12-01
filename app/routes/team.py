@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter
 
 from database import (
@@ -11,7 +10,6 @@ from models.teams import (
 )
 
 router = APIRouter()
-
 
 @router.get("/", response_description="Teams data retrieved")
 async def retrieve_teams_data():
@@ -27,8 +25,3 @@ async def retrieve_team_data(id):
     if team:
         return ResponseModel(team, "Team data retrieved successfully")
     return ErrorResponseModel("Error occured", 404, "Team doesn't exist")
-
-async def test():
-    teams = await retrieve_teams()
-    if teams:
-        return teams
