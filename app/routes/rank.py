@@ -14,6 +14,11 @@ def get_data():
   
   return data
 
+def get_team_data():
+  with open('../football_json/Premier League_squad.json', 'r') as f:
+    data = json.load(f)
+  
+  return data
 # rank_helper
 def rank_helper(team) -> dict:
   return {
@@ -26,3 +31,20 @@ def rank_helper(team) -> dict:
       "gd": team["gd"],
       "points": team["points"],
   }
+
+def player_helper(player) -> dict:
+  return {
+      "name": player["name"],
+      "number": player["number"],
+      "age": player["age"],
+      "position": player["position"],
+      "injured": player["injured"],
+      "minutes": player["minutes"],
+      "appearences": player["appearences"],
+      "goals": player["goals"],
+      "assists": player["assists"],
+      "yellowcards": player["yellowcards"],
+      "yellowred": player["yellowred"],
+      "redcards": player["redcards"],
+  }
+

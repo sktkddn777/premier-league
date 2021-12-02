@@ -11,9 +11,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
-
+    
     <div class="main1">
         <div class="main2 table-responsive">
             <center>
@@ -31,206 +29,35 @@
                         <td>POINTS</td>
                     </thead>
                     <tbody>
+                        {% for value in data[:4] %}
                         <tr class="top">
-                            <td>1</td>
-                            <td class="name"><img class="logo" src={{ data[0]['icon'] }}>&nbsp;&nbsp; {{data[0]['name']}}</td>
-                            <td>{{ data[0]['round'] }}</td>
-                            <td>{{ data[0]['overall_w'] }}</td>
-                            <td>{{ data[0]['overall_d'] }}</td>
-                            <td>{{ data[0]['overall_l'] }}</td>
-                            <td>{{ data[0]['gd'] }}</td>
-                            <td>{{data[0]['points']}}</td>
+                            <td>{{ value[0]+1 }}</td>
+                            <td class="name"><img class="logo" src={{ value[1]['icon'] }}>&nbsp;&nbsp;
+                                <a href="http://localhost:8002/squad/{{ value[1]['name'] }}" title = {{ value[1]['name'] }}> {{value[1]['name']}} </a>
+                            </td>
+                            <td>{{ value[1]['round'] }}</td>
+                            <td>{{ value[1]['overall_w'] }}</td>
+                            <td>{{ value[1]['overall_d'] }}</td>
+                            <td>{{ value[1]['overall_l'] }}</td>
+                            <td>{{ value[1]['gd'] }}</td>
+                            <td>{{ value[1]['points'] }}</td>
                         </tr>
-                        <tr class="top">
-                            <td>2</td>
-                            <td class="name"><img class="logo" src={{ data[1]['icon'] }}>&nbsp;&nbsp; {{data[1]['name']}}</td>
-                            <td>{{ data[1]['round'] }}</td>
-                            <td>{{ data[1]['overall_w'] }}</td>
-                            <td>{{ data[1]['overall_d'] }}</td>
-                            <td>{{ data[1]['overall_l'] }}</td>
-                            <td>{{ data[1]['gd'] }}</td>
-                            <td>{{data[1]['points']}}</td>
-                        </tr>
-                        <tr class="top">
-                            <td>3</td>
-                            <td class="name"><img class="logo" src={{ data[2]['icon'] }}>&nbsp;&nbsp; {{data[2]['name']}}</td>
-                            <td>{{ data[2]['round'] }}</td>
-                            <td>{{ data[2]['overall_w'] }}</td>
-                            <td>{{ data[2]['overall_d'] }}</td>
-                            <td>{{ data[2]['overall_l'] }}</td>
-                            <td>{{ data[2]['gd'] }}</td>
-                            <td>{{data[2]['points']}}</td>
-                        </tr>
-                        <tr class="top">
-                            <td>4</td>
-                            <td class="name"><img class="logo" src={{ data[3]['icon'] }}>&nbsp;&nbsp; {{data[3]['name']}}</td>
-                            <td>{{ data[3]['round'] }}</td>
-                            <td>{{ data[3]['overall_w'] }}</td>
-                            <td>{{ data[3]['overall_d'] }}</td>
-                            <td>{{ data[3]['overall_l'] }}</td>
-                            <td>{{ data[3]['gd'] }}</td>
-                            <td>{{data[3]['points']}}</td>
-                        </tr>
+                        {% endfor %}
+                        
+                        {% for value in data[4:] %}
                         <tr>
-                            <td>5</td>
-                            <td class="name"><img class="logo" src={{ data[4]['icon'] }}>&nbsp;&nbsp; {{data[4]['name']}}</td>
-                            <td>{{ data[4]['round'] }}</td>
-                            <td>{{ data[4]['overall_w'] }}</td>
-                            <td>{{ data[4]['overall_d'] }}</td>
-                            <td>{{ data[4]['overall_l'] }}</td>
-                            <td>{{ data[4]['gd'] }}</td>
-                            <td>{{data[4]['points']}}</td>
+                            <td>{{ value[0]+1 }}</td>
+                            <td class="name"><img class="logo" src={{ value[1]['icon'] }}>&nbsp;&nbsp;
+                                <a href="http://localhost:8002/squad/{{ value[1]['name'] }}" title = {{ value[1]['name'] }}> {{value[1]['name']}} </a>
+                            </td>
+                            <td>{{ value[1]['round'] }}</td>
+                            <td>{{ value[1]['overall_w'] }}</td>
+                            <td>{{ value[1]['overall_d'] }}</td>
+                            <td>{{ value[1]['overall_l'] }}</td>
+                            <td>{{ value[1]['gd'] }}</td>
+                            <td>{{ value[1]['points'] }}</td>
                         </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="name"><img class="logo" src={{ data[5]['icon'] }}>&nbsp;&nbsp; {{data[5]['name']}}</td>
-                            <td>{{ data[5]['round'] }}</td>
-                            <td>{{ data[5]['overall_w'] }}</td>
-                            <td>{{ data[5]['overall_d'] }}</td>
-                            <td>{{ data[5]['overall_l'] }}</td>
-                            <td>{{ data[5]['gd'] }}</td>
-                            <td>{{data[5]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="name"><img class="logo" src={{ data[6]['icon'] }}>&nbsp;&nbsp; {{data[6]['name']}}</td>
-                            <td>{{ data[6]['round'] }}</td>
-                            <td>{{ data[6]['overall_w'] }}</td>
-                            <td>{{ data[6]['overall_d'] }}</td>
-                            <td>{{ data[6]['overall_l'] }}</td>
-                            <td>{{ data[6]['gd'] }}</td>
-                            <td>{{data[6]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="name"><img class="logo" src={{ data[7]['icon'] }}>&nbsp;&nbsp; {{data[7]['name']}}</td>
-                            <td>{{ data[7]['round'] }}</td>
-                            <td>{{ data[7]['overall_w'] }}</td>
-                            <td>{{ data[7]['overall_d'] }}</td>
-                            <td>{{ data[7]['overall_l'] }}</td>
-                            <td>{{ data[7]['gd'] }}</td>
-                            <td>{{data[7]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="name"><img class="logo" src={{ data[8]['icon'] }}>&nbsp;&nbsp; {{data[8]['name']}}</td>
-                            <td>{{ data[8]['round'] }}</td>
-                            <td>{{ data[8]['overall_w'] }}</td>
-                            <td>{{ data[8]['overall_d'] }}</td>
-                            <td>{{ data[8]['overall_l'] }}</td>
-                            <td>{{ data[8]['gd'] }}</td>
-                            <td>{{data[8]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="name"><img class="logo" src={{ data[9]['icon'] }}>&nbsp;&nbsp; {{data[9]['name']}}</td>
-                            <td>{{ data[9]['round'] }}</td>
-                            <td>{{ data[9]['overall_w'] }}</td>
-                            <td>{{ data[9]['overall_d'] }}</td>
-                            <td>{{ data[9]['overall_l'] }}</td>
-                            <td>{{ data[9]['gd'] }}</td>
-                            <td>{{data[9]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td class="name"><img class="logo" src={{ data[10]['icon'] }}>&nbsp;&nbsp; {{data[10]['name']}}</td>
-                            <td>{{ data[10]['round'] }}</td>
-                            <td>{{ data[10]['overall_w'] }}</td>
-                            <td>{{ data[10]['overall_d'] }}</td>
-                            <td>{{ data[10]['overall_l'] }}</td>
-                            <td>{{ data[10]['gd'] }}</td>
-                            <td>{{data[10]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td class="name"><img class="logo" src={{ data[11]['icon'] }}>&nbsp;&nbsp; {{data[11]['name']}}</td>
-                            <td>{{ data[11]['round'] }}</td>
-                            <td>{{ data[11]['overall_w'] }}</td>
-                            <td>{{ data[11]['overall_d'] }}</td>
-                            <td>{{ data[11]['overall_l'] }}</td>
-                            <td>{{ data[11]['gd'] }}</td>
-                            <td>{{data[11]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td class="name"><img class="logo" src={{ data[12]['icon'] }}>&nbsp;&nbsp; {{data[12]['name']}}</td>
-                            <td>{{ data[12]['round'] }}</td>
-                            <td>{{ data[12]['overall_w'] }}</td>
-                            <td>{{ data[12]['overall_d'] }}</td>
-                            <td>{{ data[12]['overall_l'] }}</td>
-                            <td>{{ data[12]['gd'] }}</td>
-                            <td>{{data[12]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td class="name"><img class="logo" src={{ data[13]['icon'] }}>&nbsp;&nbsp; {{data[13]['name']}}</td>
-                            <td>{{ data[13]['round'] }}</td>
-                            <td>{{ data[13]['overall_w'] }}</td>
-                            <td>{{ data[13]['overall_d'] }}</td>
-                            <td>{{ data[13]['overall_l'] }}</td>
-                            <td>{{ data[13]['gd'] }}</td>
-                            <td>{{data[13]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td class="name"><img class="logo" src={{ data[14]['icon'] }}>&nbsp;&nbsp; {{data[14]['name']}}</td>
-                            <td>{{ data[14]['round'] }}</td>
-                            <td>{{ data[14]['overall_w'] }}</td>
-                            <td>{{ data[14]['overall_d'] }}</td>
-                            <td>{{ data[14]['overall_l'] }}</td>
-                            <td>{{ data[14]['gd'] }}</td>
-                            <td>{{data[14]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td class="name"><img class="logo" src={{ data[15]['icon'] }}>&nbsp;&nbsp; {{data[15]['name']}}</td>
-                            <td>{{ data[15]['round'] }}</td>
-                            <td>{{ data[15]['overall_w'] }}</td>
-                            <td>{{ data[15]['overall_d'] }}</td>
-                            <td>{{ data[15]['overall_l'] }}</td>
-                            <td>{{ data[15]['gd'] }}</td>
-                            <td>{{data[15]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td class="name"><img class="logo" src={{ data[16]['icon'] }}>&nbsp;&nbsp; {{data[16]['name']}}</td>
-                            <td>{{ data[16]['round'] }}</td>
-                            <td>{{ data[16]['overall_w'] }}</td>
-                            <td>{{ data[16]['overall_d'] }}</td>
-                            <td>{{ data[16]['overall_l'] }}</td>
-                            <td>{{ data[16]['gd'] }}</td>
-                            <td>{{data[16]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>18</td>
-                            <td class="name"><img class="logo" src={{ data[17]['icon'] }}>&nbsp;&nbsp; {{data[17]['name']}}</td>
-                            <td>{{ data[17]['round'] }}</td>
-                            <td>{{ data[17]['overall_w'] }}</td>
-                            <td>{{ data[17]['overall_d'] }}</td>
-                            <td>{{ data[17]['overall_l'] }}</td>
-                            <td>{{ data[17]['gd'] }}</td>
-                            <td>{{data[17]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>19</td>
-                            <td class="name"><img class="logo" src={{ data[18]['icon'] }}>&nbsp;&nbsp; {{data[18]['name']}}</td>
-                            <td>{{ data[18]['round'] }}</td>
-                            <td>{{ data[18]['overall_w'] }}</td>
-                            <td>{{ data[18]['overall_d'] }}</td>
-                            <td>{{ data[18]['overall_l'] }}</td>
-                            <td>{{ data[18]['gd'] }}</td>
-                            <td>{{data[18]['points']}}</td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td class="name"><img class="logo" src={{ data[19]['icon'] }}>&nbsp;&nbsp; {{data[19]['name']}}</td>
-                            <td>{{ data[19]['round'] }}</td>
-                            <td>{{ data[19]['overall_w'] }}</td>
-                            <td>{{ data[19]['overall_d'] }}</td>
-                            <td>{{ data[19]['overall_l'] }}</td>
-                            <td>{{ data[19]['gd'] }}</td>
-                            <td>{{data[19]['points']}}</td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </center>
