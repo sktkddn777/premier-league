@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-from bson.objectid import ObjectId
 from os import path
 
 BASE_DIR = path.dirname(path.abspath(__file__))
@@ -8,17 +7,29 @@ mongo_details = "mongodb://root:example@mongo:27017"
 client = MongoClient(mongo_details)
 database = client.teams
 team_collection = database.get_collection("teams_collection")
+squad_collection = database.get_collection("squads_collection")
 
-# helper
+# team_helper
 def team_helper(team) -> dict:
   return {
       "id": str(team["_id"]),
       "name": team["name"],
+      "overall_gp": team["overall_gp"],
+      "overall_w": team["overall_w"],
+      "overall_d": team["overall_d"],
+      "overall_l": team["overall_l"],
+      "gd": team["gd"],
       "points": team["points"],
-      "round": team["round"],
-      "season": team["season"],
+  }
+
+# squad_helper
+def squad_helper(team) -> dict:
+  return {
+      "id": str(team["_id"]),
+      "name": team["name"],
       "squad": team["squad"],
   }
+
 
 # retrieve all teams in database
 async def retrieve_teams():
@@ -27,16 +38,8 @@ async def retrieve_teams():
         teams.append(team_helper(data))
     return teams
 
-async def retrieve_team(id: str) -> dict:
-    team = team_collection.find_one({"_id": ObjectId(id)})
-    if team:
-        return team_helper(team)
-
-
-async def retrieve_teams_ranking():
+async def retrieve_squads():
     teams = []
-    for idx, data in enumerate(team_collection.find()):
-        name = team_helper(data)['name']
-        point = team_helper(data)['points']
-        teams.append((idx+1, name, point))
+    for data in squad_collection.find():
+        teams.append(squad_helper(data))
     return teams

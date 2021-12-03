@@ -30,11 +30,27 @@ class TeamSchema(BaseModel):
   class Config:
       schema_extra = {
           "example": {
-              "name": "4",
-              "points": "6",
-              "round": "6",
-              "season": "2020/2021",
-              "squad": ["player1","player2", "player3"],
+              "name": "Chelsea",
+              "gd": "+27",
+              "overall_d": "3",
+              "overall_gp": "14",
+              "overall_l": "1",
+              "overall_w": "10",
+              "points": "33",
+          }
+      }
+
+# How to store in Mongo DB
+class SquadSchema(BaseModel):
+  id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+  name: str = Field(...)
+  squad: list = Field(...)
+
+  class Config:
+      schema_extra = {
+          "example": {
+              "name": "Chelsea",
+              "squad": ["player1", "player2", "player3"]
           }
       }
 

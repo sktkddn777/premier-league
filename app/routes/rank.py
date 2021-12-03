@@ -8,23 +8,13 @@ def __get_icon(name):
       data = json.load(f)
   return data[name]
 
-def get_data():
-  with open('../football_json/Premier League.json', 'r') as f:
-    data = json.load(f)
   
-  return data
-
-def get_team_data():
-  with open('../football_json/Premier League_squad.json', 'r') as f:
-    data = json.load(f)
-  
-  return data
 # rank_helper
 def rank_helper(team) -> dict:
   return {
-      "icon": __get_icon(team["team_name"]),
-      "name": team["team_name"],
-      "round": team["overall_gp"],
+      "icon": __get_icon(team["name"]),
+      "name": team["name"],
+      "overall_gp": team["overall_gp"],
       "overall_w": team["overall_w"],
       "overall_d": team["overall_d"],
       "overall_l": team["overall_l"],
@@ -32,6 +22,7 @@ def rank_helper(team) -> dict:
       "points": team["points"],
   }
 
+# player_helper
 def player_helper(player) -> dict:
   return {
       "name": player["name"],

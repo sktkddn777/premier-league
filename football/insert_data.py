@@ -17,9 +17,12 @@ class Database:
         print("Connect Successful")
     except:
         print("Connect failed")
-    database = client.teams
-    self.team_collection = database.get_collection("teams_collection")
+
+    database_teams = client.teams
+    self.team_collection = database_teams.get_collection("teams_collection")
+    self.squad_collection = database_teams.get_collection("squads_collection")
     self.premier_insert()
+    self.squad_insert()
 
 
   def open_premier_data(self):
@@ -31,25 +34,40 @@ class Database:
 
 
   def premier_insert(self):
-    premierLeague = self.premier_league_data['Premier League']
-    season = premierLeague[0]["season"]
-    round = premierLeague[0]["round"]
-
+    premierLeague = self.premier_league_data['Premier League'] 
     for data in premierLeague:
         team_name = data["team_name"]
+        overall_gp = data["overall_gp"]
+        overall_w = data["overall_w"]
+        overall_d = data["overall_d"]
+        overall_l = data["overall_l"]
+        gd = data["gd"]
         points = data["points"]
-        team_squad = self.squad_data[team_name][0]["squad"]
+        
               
         self.team_collection.update_one(
             {"name": team_name}, { "$set" : {
-                "season": season, 
-                "round":round,
+                "overall_gp":overall_gp,
+                "overall_w":overall_w,
+                "overall_d":overall_d,
+                "overall_l":overall_l,
+                "gd":gd,
                 "points":points,
-                "squad":team_squad
             }},
             upsert=True,
         )
 
+  def squad_insert(self):
+    squad_data = self.squad_data
+    for name, value in squad_data.items():
+      squad = value[0]["squad"]
+
+      self.squad_collection.update_one(
+        {"name": name}, { "$set" : {
+          "squad": squad,
+        }},
+        upsert=True,
+      )
 
 
 
