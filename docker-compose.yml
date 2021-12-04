@@ -58,7 +58,6 @@ services:
 # volume 설정.
 volumes:
   mongo-storage:
-
 # networks 
 networks:
   epl:
