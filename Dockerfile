@@ -2,10 +2,10 @@ FROM python:3.8-slim-buster
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /backend
+WORKDIR /app
 
-COPY requirements.txt /backend/
+COPY requirements.txt /app/
 
 RUN pip install -r requirements.txt
 
-COPY . /backend/
+COPY . /app/

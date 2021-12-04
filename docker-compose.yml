@@ -7,6 +7,8 @@ services:
     restart: always
     ports: 
       - 27017:27017
+    networks:
+      - epl
     volumes: 
       - mongo-storage:/data/db
     environment:
@@ -18,6 +20,8 @@ services:
     restart: always
     ports:
       - 8081:8081
+    networks:
+      - epl
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ROOT_USER}
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ROOT_PASSWORD}
@@ -28,17 +32,19 @@ services:
   football:
     build: .
     command: sh -c "cd football && python premier.py"
+    volumes:
+      - .:/app
+    networks:
+      - epl
     depends_on:
       - mongo
-    volumes:
-      - .:/backend
 
   fastapi:
     build: .
     command: sh -c "cd app && python main.py"
     restart: always
     volumes:
-      - .:/backend
+      - .:/app
     ports:
       - 8001:8000
     networks:
