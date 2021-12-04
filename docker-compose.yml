@@ -41,6 +41,8 @@ services:
       - .:/backend
     ports:
       - 8002:8000
+    networks:
+      - epl
     expose:
       - 8002
     depends_on:
@@ -52,5 +54,6 @@ volumes:
   mongo-storage:
 
 # networks 
-# networks:
-#   epl:
+networks:
+  epl:
+    driver: bridge
