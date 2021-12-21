@@ -4,7 +4,7 @@ services:
 
   mongo:
     image: mongo
-    restart: always
+    restart: unless-stopped
     ports: 
       - 27017:27017
     networks:
@@ -17,9 +17,9 @@ services:
 
   mongo-express:
     image: mongo-express
-    restart: always
+    restart: unless-stopped
     ports:
-      - 8081:8081
+      - 8281:8081
     networks:
       - epl
     environment:
@@ -42,15 +42,15 @@ services:
   fastapi:
     build: .
     command: sh -c "cd app && python main.py"
-    restart: always
+    restart: unless-stopped
     volumes:
       - .:/app
     ports:
-      - 8001:8000
+      - 8201:8000
     networks:
       - epl
     expose:
-      - 8001
+      - 8201
     depends_on:
       - mongo
 
@@ -58,6 +58,7 @@ services:
 # volume 설정.
 volumes:
   mongo-storage:
+  
 # networks 
 networks:
   epl:

@@ -47,6 +47,10 @@
 * [한상우](https://github.com/sktkddn777) - 백엔드
 * [김주한](https://github.com/juhan2103) - 프론트엔드
 
+## AWS
+![install docker](https://docs.docker.com/engine/install/ubuntu/)
+![install compose](https://docs.docker.com/compose/install/)
+
 <!-- LICENSE -->
 ## License
 
